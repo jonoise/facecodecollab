@@ -33,14 +33,14 @@ class Language(models.Model):
         return f'{self.name}'
 
 class Framework(models.Model):
-    language = models.OneToOneField(Language, models.CASCADE)
+    language = models.ForeignKey(Language, models.CASCADE)
     name = models.CharField(max_length=60, verbose_name='framework', unique=True)
     description = models.TextField(verbose_name='descripción', blank=True)
     icon = models.ImageField(verbose_name='icon', upload_to=framework_icon_path, blank=True)
     logo = models.ImageField(verbose_name='logo', upload_to=framework_logos_path, blank=True)
 
     class Meta:
-        ordering = ['name']
+        ordering = ['language']
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.name}  ({self.language})'

@@ -1,4 +1,5 @@
 fakecc 
 db.sqlite3 
 .idea 
-json/ 
+json/
+**/__pycache__/

@@ -132,4 +132,4 @@ STATIC_URL = '/static/'
 
 # FIXTURE
 
-FIXTURE_DIRS = ( os.path.join(BASE_DIR, 'json'), )
+FIXTURE_DIRS = (os.path.join(BASE_DIR, 'json'))
