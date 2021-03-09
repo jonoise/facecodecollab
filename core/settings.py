@@ -37,7 +37,6 @@ MY_APPS = [
     'users.apps.UsersConfig',
     'account.apps.AccountConfig',
     'languages.apps.LanguagesConfig',
-    'playground.apps.PlaygroundConfig',
     'django_ace',
 ]
 
