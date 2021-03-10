@@ -25,6 +25,7 @@ class Course(models.Model):
     title = models.CharField(max_length=60, verbose_name='título')
     description = models.TextField(verbose_name='descripción')
     slug = models.SlugField(max_length=60, verbose_name='slug')
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
@@ -47,7 +48,7 @@ class Lesson(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='lessons')
     title = models.CharField(max_length=60, verbose_name='título')
     description = models.TextField(verbose_name='descripción')
-    video = models.CharField
+    video = models.URLField(verbose_name='video link')
     slug = models.SlugField(max_length=60, verbose_name='slug')
 
     def __str__(self):
