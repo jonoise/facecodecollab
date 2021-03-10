@@ -37,7 +37,6 @@ MY_APPS = [
     'users.apps.UsersConfig',
     'account.apps.AccountConfig',
     'languages.apps.LanguagesConfig',
-    'playground.apps.PlaygroundConfig',
     'django_ace',
 ]
 
@@ -86,10 +85,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DB_USERNAME = 'fake'
+DB_PASSWORD = 'password'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fakecc',
+        'HOST': 'localhost',
+        'USER': DB_USERNAME,
+        'PASSWORD': DB_PASSWORD,
+        'PORT': 5432,
     }
 }
 
