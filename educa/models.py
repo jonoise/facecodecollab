@@ -7,7 +7,8 @@ class Subject(models.Model):
     title = models.CharField(max_length=60, verbose_name='título')
     description = models.TextField(verbose_name='descripción')
     slug = models.SlugField(max_length=60, verbose_name='slug')
-
+    hook = models.TextField(verbose_name='commercial hook', blank=True)
+    
     def __str__(self):
         return self.title
 
@@ -18,9 +19,9 @@ class Subject(models.Model):
 
 
 class Course(models.Model):
-    collaborator = models.OneToOneField(UserModel, on_delete=models.CASCADE)
+    collaborator = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE, related_name='courses')
-    framework = models.ForeignKey(Framework, on_delete=models.CASCADE, related_name='courses', blank=True)
+    framework = models.ForeignKey(Framework, on_delete=models.CASCADE, related_name='courses', blank=True, null=True)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='courses')
     title = models.CharField(max_length=60, verbose_name='título')
     description = models.TextField(verbose_name='descripción')
@@ -36,7 +37,7 @@ class Course(models.Model):
                                 ])
 
 class Section(models.Model):
-    course = models.ForeignKey(Course, verbose_name='section', on_delete=models.CASCADE, related_name='sections')
+    course = models.ForeignKey(Course, verbose_name='course', on_delete=models.CASCADE, related_name='sections')
     title = models.CharField(max_length=60, verbose_name='título')
     description = models.TextField(verbose_name='descripción')
     slug = models.SlugField(max_length=60, verbose_name='slug')
