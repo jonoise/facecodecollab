@@ -3,3 +3,5 @@ db.sqlite3
 .idea 
 json/
 **/__pycache__/
+cert.crt
+cert.key

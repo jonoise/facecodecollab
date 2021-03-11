@@ -26,19 +26,21 @@ SECRET_KEY = '-14ktqj1^oq&lemz7ffx7nc32@0=nt(x&(73m1!*^#6@2!1i_%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # CUSTOM USER MODEL
 AUTH_USER_MODEL = 'users.UserModel'
 
-# Application definition
+# Application definitionP
 MY_APPS = [
     'users.apps.UsersConfig',
     'account.apps.AccountConfig',
     'languages.apps.LanguagesConfig',
     'educa.apps.EducaConfig',
     'django_ace',
+    'social_django',
+    'django_extensions',
 ]
 
 DJANGO_APPS = [
